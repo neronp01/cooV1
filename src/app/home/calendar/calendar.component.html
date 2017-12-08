@@ -1,0 +1,72 @@
+
+<div class="calendar">
+  <mat-toolbar style="width: 100%">
+  <div class="calendar-navs">
+    <div class="month-nav">
+      <button mat-button appHideIcone class="buttonIcon" (click)="prevMonth()" ><i class="material-icons ">keyboard_arrow_left</i></button>
+      <span class="p4">{{ currentDate.format('MMMM') }}</span>
+      <button mat-button appHideIcone class="buttonIcon" (click)="nextMonth()"><i class="material-icons">keyboard_arrow_right</i></button>
+    </div>
+    <div class="year-nav">
+      <button mat-button appHideIcone class="buttonIcon"  (click)="prevYear()"><i class="material-icons">keyboard_arrow_left</i></button>
+      <span>{{ currentDate.format('YYYY') }}</span>
+      <button mat-button appHideIcone class="buttonIcon" (click)="nextYear()"><i class="material-icons">keyboard_arrow_right</i></button>
+    </div>
+  </div>
+  </mat-toolbar>
+  <div class="month-grid">
+    <div class="day-names">
+      <div *ngFor="let name of dayNames" class="day-name p9">
+        {{ name }}
+      </div>
+    </div>
+    <div class="weeks">
+      <div *ngFor="let week of weeks" class="week">
+        <ng-container *ngFor="let day of week ; let i = index">
+          <div class="week-date disabled" *ngIf="!isSelectedMonth(day.mDate)">
+            <span class="date-text">{{ day.mDate.date() }}</span>
+          </div>
+          <div class="week-date enabled"
+               *ngIf="isSelectedMonth(day.mDate)"
+               (click)="selectDate(day)"
+               [ngClass]="{ today: day.today, selected: day.selected }">
+            <span class="date-text">
+
+              {{ day.mDate.date() }}
+
+               <svg  height="30" width="30" class="cicleSvgDay" fill="#512DA8" *ngIf="isActivityDay(week[i].mDate.date())">
+              <circle cx="15" cy="15" r="13"  fill= "#512DA8" />
+            </svg>
+            </span>
+
+
+          </div>
+
+          <div>
+
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngFor="let message of _listeMessage ; let i = index">
+<mat-expansion-panel style="padding-left: 0px">
+  <mat-expansion-panel-header style="padding-left: 0px">
+    <mat-panel-title style="padding-left: 0px">
+      <svg height="50" width="600" class="cicleSvg" fill="#512DA8">
+        <circle cx="50" cy="22" r="35"  [attr.fill]= "_listeMessage[i].couleur" />
+        <circle cx="20" cy="22" r="35"  [attr.fill]= "_listeMessage[i].couleur" />
+        <text x="14" y="44" font-size="50" fill = "#ffffff">{{message.date}}</text>
+        <text x="100" y="30" font-size="20" fill="#673AB7" >{{message.activite}}</text>
+      </svg>
+    </mat-panel-title>
+    <mat-panel-description>
+      {{message.activate}}
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <h4 style="color: #512DA8">Endroit: {{message.lieu}}</h4>
+  <h4 style="color: #512DA8">Participant: {{message.lect}}</h4>
+  <h4 style="color: #512DA8">Message: {{message.texte}}</h4>
+</mat-expansion-panel>
+</div>

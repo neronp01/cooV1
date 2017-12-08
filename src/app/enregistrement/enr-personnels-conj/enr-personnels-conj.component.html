@@ -1,0 +1,108 @@
+<div class="backgound" >
+<mat-grid-list cols="1" rowHeight="800px" class="grid_list_login">
+  <mat-grid-tile colspan="1" class="title">
+    <mat-card class="md_card_login">
+      <form [formGroup]="membreForm" novalidate>
+      <mat-card-title>
+        <h4 class="display-4">Informations personnelles conjouint(e)</h4>
+        <p class="champObli">* champ obligatoire</p>
+      </mat-card-title>
+      <mat-card-content class="content-info-perso">
+        <mat-grid-list cols="4" rowHeight="70px">
+          <!--<form class="example-form">-->
+
+            <mat-grid-tile colspan = "4" rowspan="1" class="un">
+              <mat-form-field class="example-full-width">
+                <input matInput id="courriel"
+                       formControlName="courrielForm"
+                       class="form-control"
+                       type="email"
+                       minlength="2"
+                       required
+                       #courriel
+                       placeholder="Courriel" >
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile colspan = "2" rowspan="1" class="un">
+              <mat-form-field class="example-full-width">
+                <input matInput id="prenom"
+                       formControlName="prenomForm"
+                       class="form-control"
+                       minlength="2"
+                       required
+                       #prenom
+                       placeholder="Prénom" >
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile colspan = "2" rowspan="1"  class="un">
+              <mat-form-field class="example-full-width">
+                <input matInput
+                       formControlName="nomForm"
+                       class="form-control"
+                       minlength="2"
+                       required
+                       placeholder="Nom" #nom >
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile colspan = "2" rowspan="1" class="un">
+              <mat-form-field class="example-full-width">
+                <my-tel-inputConjouint
+                  [placeholder]="placeholder"
+                  [value]="value"
+                  (telephone)="telephone($event)"
+                ></my-tel-inputConjouint>
+                <!--<input matInput-->
+                       <!--formControlName="telephoneForm"-->
+                       <!--class="form-control"-->
+                       <!--type="tel" placeholder="Téléphone" #telephone >-->
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile colspan = "2" rowspan="1" class="un">
+              <mat-form-field class="example-full-width">
+                <input matInput
+                       formControlName="professionForm"
+                       class="form-control"
+                       placeholder="Profession" #profession>
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile colspan = "2" rowspan="1" class="un">
+              <mat-form-field class="example-full-width">
+                <form #myForm="ngForm" novalidate>
+                  <input matInput
+                         type="text"
+                         name="dateNaissance"
+                         #dateNaissance="ngModel"
+                         [(ngModel)]="_dateNaissance"
+                         class="form-control"
+                         placeholder="Date de naisssance"
+                         dateNaissanceValidation
+                  >
+                  <app-errors [control]="dateNaissance"></app-errors>
+                </form>
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile colspan = "4" rowspan="1" class="un">
+            </mat-grid-tile>
+
+          <!--</form>-->
+        </mat-grid-list>
+      </mat-card-content>
+      <mat-card-footer class="footer">
+        <mat-grid-list cols="3" rowHeight="50px">
+          <mat-grid-tile colspan="3" class="tile_button">
+            <button mat-mini-fab  class="button_bottom" (click)="gauche( courriel.value, nom.value, prenom.value, profession.value, dateNaissance.value)"><i style="color: #ffffff"  class="material-icons">chevron_left</i></button>
+            <button mat-mini-fab  class="button_bottom"
+                    type="submit"
+                    [disabled] = isDisabled
+                    (click)="droite( courriel.value, nom.value, prenom.value, profession.value, dateNaissance.value)"><i style="color: #ffffff" class="material-icons">chevron_right</i></button>
+          </mat-grid-tile>
+        </mat-grid-list>
+        <h5 class="mat-h5" style="float: right; padding-right: 20px"></h5>
+
+      </mat-card-footer>
+      </form>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+</div>

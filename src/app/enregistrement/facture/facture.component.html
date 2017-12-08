@@ -1,0 +1,97 @@
+<div class="backgound" >
+<section class="mat-typography">
+<mat-grid-list cols="1" rowHeight="1000px" class="grid_list_login">
+  <mat-grid-tile colspan="1" class="title">
+    <mat-card  class="md_card_facture">
+     <div style="margin-top: 50px">
+        <h1>Facturation</h1>
+     </div>
+      <mat-card-content >
+        <mat-grid-list class="option" cols="8" rowHeight="40px">
+          <mat-grid-tile colspan="8" rowspan="1">
+          </mat-grid-tile>
+          <mat-grid-tile  colspan="4" rowspan="4">
+<mat-card class="card_inf">
+                <p>{{nom}}</p>
+                <p>{{adresse}}</p>
+                <p>{{courriel}}</p>
+</mat-card>
+          </mat-grid-tile>
+
+          <mat-grid-tile colspan="4" rowspan="4">
+
+            <mat-card class="card_inf">
+              <p>Club des ornithologues de l&#39;Outaouais</p>
+              <p>C.P. 1419, Succ. Hull, Gatineau (Québec) - J8X 3Y1
+                Tél.: (819) 778-3413 Tc.: (819) 682-6177</p>
+              <p>info@coo.qc.ca</p>
+            </mat-card>
+          </mat-grid-tile>
+          <mat-grid-tile  colspan="8" rowspan="6">
+            <mat-card class="card_prix">
+              <mat-grid-list cols="8" rowHeight="25px">
+                <mat-grid-tile colspan="8" rowspan="4">
+                  <mat-list>
+                  <mat-list-item>
+                      <mat-checkbox
+                        align="end"
+                        #consAdm
+                        (change)="addFraiOrnitouais($event)"
+                        class="checkbox">
+                        <p class="checkbox_p">Je souhaite recevoir l’Ornitaouais papier et payer les frais de poste de {{fraisPost}} $.</p>
+                      </mat-checkbox>
+                  </mat-list-item>
+                  <mat-list-item>
+                  <p class="textDon">Don au COO (Fonds Louise-Campagna)</p>
+                    <mat-form-field style="text-align: right; width: 100px">
+                      <input matInput #dons (keyup)="onKey(dons.value)" style="text-align: right">
+                      <span matSuffix style="font-size: medium">,00 $</span>
+                    </mat-form-field>
+                  </mat-list-item>
+                  </mat-list>
+                </mat-grid-tile>
+              </mat-grid-list>
+            </mat-card>
+          </mat-grid-tile>
+          <mat-grid-tile  colspan="8" [rowspan]="rowspan">
+            <mat-card class="card_prix">
+              <mat-list>
+                <mat-list-item>
+                  <p class="description">Numéro de facture</p>
+                  <p class="resultat">NWE123</p>
+                </mat-list-item>
+                <mat-list-item>
+                  <p class="description">Montant de la cotisation ({{typeAbonement}})</p>
+                  <p class="resultat">{{prixAbonnement}},00 $</p>
+                </mat-list-item>
+                <mat-list-item *ngIf="fraisPostInt === fraisPost">
+                  <p class="description">Frais de poste pour recevoir l’Ornitaouais papier</p>
+                  <p class="resultat">{{fraisPost}},00 $</p>
+                </mat-list-item>
+                <mat-list-item *ngIf="don >= 1">
+                <p class="description">Don au COO</p>
+                <p class="resultat">{{don}},00 $</p>
+              </mat-list-item>
+                <mat-list-item >
+                  <p class="description">Total</p>
+                  <p class="resultat">{{total}},00 $</p>
+                </mat-list-item>
+              </mat-list>
+            </mat-card>
+          </mat-grid-tile>
+        </mat-grid-list>
+        <button class="example-button-row" mat-button (click)="payment()">Payer</button>
+        <!--<make-payment class="paiement"></make-payment>-->
+        <!--<send-email></send-email>-->
+      </mat-card-content>
+      <mat-card-footer>
+        <mat-grid-list class="footerButton" cols="3" rowHeight="50px">
+          <mat-grid-tile colspan="3">
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-card-footer>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+</section>
+</div>>

@@ -1,0 +1,51 @@
+.md_card_login{
+  width: 400px;
+  height: 700px;
+
+}
+
+.grid_list_login{
+  margin-top: 50px;
+}
+
+.login-titre{
+  font-family: "Times New Roman", Times, serif;
+  color:#546E7A;
+}
+
+.image-providers{
+  float: right;
+}
+.login-text-button{
+  float: left;
+  font-family: "Times New Roman", Times, serif;
+}
+.list-item-button{
+  height: 120px;
+}
+
+.google{
+
+}
+.login-button{
+  height:120px;
+}
+
+.login-jouindre-button{
+  font-family: "Times New Roman", Times, serif;
+  color:#546E7A;
+}
+.backgound{
+  position: absolute;
+  top: 0px;
+  margin: 0px;
+  background-image: url("./../../assets/backGround.jpg");
+  width: 100%;
+  height: 1000px;
+}
+
+.timer {
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+}

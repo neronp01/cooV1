@@ -1,0 +1,59 @@
+.md_card_facture{
+  width: 800px;
+  height: auto;
+}
+mat-list{
+
+}
+.list_titre{
+  position: absolute;
+  left: 0px;
+}
+p{
+  font-size: small;
+
+}
+.option {
+
+}
+
+.card_inf{
+  width: 325px;
+  height: 100px;
+}
+.card_prix{
+  width: 725px;
+  height: auto;
+}
+.paiement{
+  background-color: #546E7A;
+  width: 300px;
+  height: auto;
+}
+.checkbox_p{
+  font-size: medium;
+  margin: 0px 150px 0px 10px;
+  text-align: left;
+
+}
+.textDon{
+  font-size: medium;
+  margin: 0px 330px 0px 10px;
+  text-align: right;
+}
+.resultat{
+  font-size: medium;
+  position:absolute;
+  right: 10px;
+}
+.description{
+  font-size:medium;
+}
+.backgound {
+  position: absolute;
+  top: 0px;
+  margin: 0px;
+  background-image: url("./../../../assets/backGround.jpg");
+  width: 100%;
+  height: 1000px;
+}

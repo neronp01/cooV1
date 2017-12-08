@@ -1,0 +1,55 @@
+<mat-card style="width: 700px">
+  <mat-card-header>
+    <h2 style="color: #673AB7">Inviter un membre</h2>
+    <span class="example-spacer"></span>
+    <button mat-mini-fab color=null (click)="closeClick()" style="float: right; z-index: 1;"><i style="color: #673AB7" class="material-icons">clear</i></button>
+  </mat-card-header>
+  <mat-list>
+    <mat-list-item>
+    <mat-form-field class="example-full-width">
+      <input #titre matInput  placeholder="Titre de l'activité">
+    </mat-form-field>
+    </mat-list-item>
+    <mat-list-item>
+      <mat-form-field class="example-mid-width" >
+        <input #date matInput [matDatepicker]="picker" placeholder="Choisisser une date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker touchUi="true" #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-radio-group style="margin-left: 55px" #radio [(ngModel)]="colors">
+        <mat-radio-button value="#FFEB3B">Jaune</mat-radio-button>
+        <mat-radio-button value="#03A9F4">Bleu</mat-radio-button>
+        <mat-radio-button value="#F44336">Rouge</mat-radio-button>
+      </mat-radio-group>
+    </mat-list-item>
+    <mat-list-item>
+      <form class="example-mid-width">
+        <mat-form-field class="example-mid-width">
+          <input #lecteur matInput placeholder="Membre" aria-label="State" [matAutocomplete]="auto" [formControl]="stateCtrl">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let state of filteredStates | async" [value]="state">
+
+              <span>{{ state }}</span>
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+    </mat-list-item>
+    <mat-list-item>
+      <mat-form-field class="example-full-width">
+        <input matInput #adresse placeholder="Adresse de l'activité">
+      </mat-form-field>
+    </mat-list-item>
+    <mat-list-item style="margin-top:30px">
+      <mat-form-field class="example-full-width" >
+        <input #texte matInput placeholder="Entrer votre message">
+      </mat-form-field>
+    </mat-list-item>
+ <mat-card-footer style="height: 70px">
+   <button style="float: right; margin-top: 20px; margin-right: 40px"
+           mat-button
+           color="primary"
+           (click)="sauverMessageClick(titre.value, date.value , lecteur.value, adresse.value, texte.value)"
+   >Sauver</button></mat-card-footer>
+  </mat-list>
+</mat-card>

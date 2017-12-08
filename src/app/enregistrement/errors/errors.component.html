@@ -1,0 +1,8 @@
+
+
+  <div *ngIf="shouldShowErrors()">
+    <mat-error>
+  <p *ngFor="let error of listOfErrors()">{{error}}</p>
+    </mat-error>
+  </div>
+

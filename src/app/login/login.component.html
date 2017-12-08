@@ -1,0 +1,42 @@
+<div class="backgound">
+<mat-grid-list cols="1" rowHeight="800px" class="grid_list_login">
+  <mat-grid-tile colspan="1" class="title">
+    <mat-card class="md_card_login">
+      <mat-card-title></mat-card-title>
+      <mat-card-content>
+<mat-grid-list cols="4" rowHeight="50px">
+  <mat-grid-tile colspan = "4" rowspan="4" class="un">
+    <img src="./assets/logo-100.jpg" style="transform: scale(.5)">
+  </mat-grid-tile>
+  <mat-grid-tile style="margin-top: 20px" colspan = "4" rowspan="1" class="deux">
+    <h2 style="color:#83b748" class="login-titre">Club des ornithologues de l'Outaouais</h2>
+
+  </mat-grid-tile>
+  <mat-grid-tile  colspan = "4" rowspan="1" class="deux">
+    <h3 style="color:#83b748"  class="login-titre">Connectez-vous à votre compte</h3>
+  </mat-grid-tile>
+</mat-grid-list>
+    <mat-list style="margin-top: 50px" >
+      <mat-list-item>
+        <button mat-raised-button (click)="facebookLogin()" routerLink="/inscription" routerLinkActive="active"  style="background-color: #83b748 ; width: 400px ;  height:60px ; margin-top: 10px"><h3 style="color:#ffffff" class="login-text-button">Connectez-vous avec Facebook</h3> <img  class="image-providers" src="./assets/svg_fournisseur_acces/Facebook_Home_logo_old.svg"/></button>
+      </mat-list-item>
+      <mat-list-item  style="margin-top:30px; margin-bottom: 30px">
+        <button (click)="googleLogin()" mat-raised-button routerLink="/membre" routerLinkActive="active"  style="background-color: #83b748; width: 400px ;  height:60px "><h3 style="color:#ffffff" class="login-text-button">Connectez-vous avec Google</h3> <img class="google" src="./assets/svg_fournisseur_acces/Google_-G-_Logo.svg"/></button>
+      </mat-list-item>
+        <mat-list-item >
+          <button (click)=" twitterLogin()" mat-raised-button routerLink="/inscription" routerLinkActive="active"  style="background-color: #83b748;color: #83b748; width: 400px ;  height:60px"><h3 style="color:#ffffff" class="login-text-button">Connectez-vous avec Twitter</h3> <img class="google" src="./assets/svg_fournisseur_acces/Twitter_Bird.svg"/></button>
+        </mat-list-item>
+    </mat-list>
+
+
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click)="getAuth()"><p style="color:#83b748" class="login-jouindre-button">Pour nous contacter</p></button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+</div>
+<timer [parent]="parent" class="timer"></timer>
+
+

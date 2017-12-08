@@ -1,0 +1,12 @@
+
+<div [formGroup]="partsDate" >
+  <input #area class="area" (keyup)="onKeyArea($event, exchange.value, subscriber.value)" formControlName="area" size="3" [disabled]="disabled">
+  <span>&ndash;</span>
+  <input #exchange class="exchange"  (keyup)="onKeyExchange(area.value,$event,subscriber.value)" formControlName="exchange" size="3" [disabled]="disabled">
+
+  <span>&ndash;</span>
+
+  <input #subscriber class="subscriber"  (keyup)="onKeySubscriber( area.value , exchange.value , $event )" formControlName="subscriber" size="4" [disabled]="disabled">
+</div>
+
+

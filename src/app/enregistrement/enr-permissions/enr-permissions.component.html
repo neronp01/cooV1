@@ -1,0 +1,123 @@
+<div class="backgound" >
+<mat-grid-list cols="1" rowHeight="800px" class="grid_list_login">
+  <mat-grid-tile colspan="1" class="title">
+    <mat-card class="md_card_login">
+      <mat-card-title>
+        <h4 class="display-4">Renseignements complémentaires</h4>
+      </mat-card-title>
+      <!--<mat-card-subtitle>Participations dans le Club</mat-card-subtitle>-->
+      <mat-card-content class="content-info-perso">
+        <mat-list class="slide-toogle-list">
+          <mat-list-item>
+              <mat-slide-toggle
+                #teleListe
+                [checked]="infoMembre['teleList']"
+                (change)="autorisationsTelephone($event)">
+              </mat-slide-toggle>
+            <div *ngIf="!autorisationTel">
+            <p class="text"><a>{{_autorisationsTelephone[0]}}</a><a class="bold">{{_autorisationsTelephone[1]}}</a><a>{{_autorisationsTelephone[2]}}</a></p>
+          </div>
+            <div *ngIf="autorisationTel">
+              <p class="text"><a>{{_autorisationsTelephone[0]}}</a><a class="pink">{{_autorisationsTelephone[1]}}</a><a>{{_autorisationsTelephone[2]}}</a></p>
+            </div>
+          </mat-list-item>
+          <mat-list-item>
+        <mat-slide-toggle
+          #nomListe
+          [checked]="infoMembre['nomListe']"
+          (change)="autorisationsNom($event)">
+        </mat-slide-toggle>
+            <div *ngIf="!autorisationNom">
+            <p class="text"><a>{{_autorisationsNom[0]}}</a><a class="bold">{{_autorisationsNom[1]}}</a><a>{{_autorisationsNom[2]}}</a></p>
+            </div>
+            <div *ngIf="autorisationNom">
+              <p class="text"><a>{{_autorisationsNom[0]}}</a><a class="pink">{{_autorisationsNom[1]}}</a><a>{{_autorisationsNom[2]}}</a></p>
+            </div>
+            </mat-list-item>
+        </mat-list>
+        <p>Je suis disponible pour :</p>
+        <mat-grid-list class="option" cols="2" rowHeight="60px">
+          <mat-grid-tile colspan="1" rowspan="3">
+          <mat-list>
+            <mat-list-item>
+              <mat-checkbox
+                #animExc
+                [checked]="infoMembre['animExc']"
+                class="example-margin">
+                Animation d’une excursion
+              </mat-checkbox>
+            </mat-list-item>
+            <mat-list-item>
+              <mat-checkbox
+                #recenNoel
+                [checked]="infoMembre['recenNoel']"
+                class="example-margin">
+                Recensement de Noël
+              </mat-checkbox>
+            </mat-list-item>
+            <mat-list-item>
+              <mat-checkbox
+                #animKio
+                [checked]="infoMembre['animKio']"
+                class="example-margin">
+                Animation d’un kiosque
+              </mat-checkbox>
+            </mat-list-item>
+          </mat-list>
+        </mat-grid-tile>
+          <mat-grid-tile colspan="1" rowspan="3">
+            <mat-list>
+              <mat-list-item>
+                <mat-checkbox
+                  #consAdm
+                  [checked]="infoMembre['consAdm']"
+                  class="example-margin">
+                  Conseil d’administration
+                </mat-checkbox>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-checkbox
+                  #redacRevi
+                  [checked]="infoMembre['redacRevi']"
+                  class="example-margin">
+                  Rédaction/révision
+                </mat-checkbox>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-checkbox
+                  #promoPubli
+                  [checked]="infoMembre['promoPubli']"
+                  class="example-margin">
+                  Promotion/publicité
+                </mat-checkbox>
+              </mat-list-item>
+            </mat-list>
+          </mat-grid-tile>
+          <mat-grid-tile colspan="2" rowspan="1">
+            <mat-form-field class="example-full-width">
+            <input #autre   matInput placeholder="Autre :"
+                   [value]="infoMembre['autre']">
+          </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </mat-card-content>
+      <mat-card-footer>
+        <mat-grid-list class="footerButton" cols="3" rowHeight="50px">
+          <mat-grid-tile colspan="3">
+            <button style="background-color: #83b748"  Class="button-derection" mat-mini-fab color="primary" (click)="gauche( teleListe.checked, nomListe.checked, animExc.checked,recenNoel.checked,animKio.checked,
+                    consAdm.checked,redacRevi.checked,promoPubli.checked,autre.value)" class="button-derection">
+                    <i class="material-icons">chevron_left</i></button>
+            <button style="background-color: #83b748"  class="button-derection" mat-mini-fab color="primary" (click)="facture( teleListe.checked, nomListe.checked, animExc.checked,recenNoel.checked,animKio.checked,
+                    consAdm.checked,redacRevi.checked,promoPubli.checked,autre.value)" class="button-derection">
+              <i class="material-icons">attach_money</i></button>
+          </mat-grid-tile>
+        </mat-grid-list>
+        <h5 class="mat-h5" style="float: right; padding-right: 20px">{{_page}}</h5>
+
+      </mat-card-footer>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+</div>
+
+

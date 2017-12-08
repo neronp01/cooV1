@@ -1,0 +1,16 @@
+{
+  "items": {
+    "a" : {
+      "size" : "small",
+      "text" : "small thing"
+    },
+    "b" : {
+      "size" : "medium",
+      "text" : "medium sample"
+    },
+    "c" : {
+      "size" : "large",
+      "text" : "large widget"
+    }
+  }
+}

@@ -1,0 +1,87 @@
+<div class="example-container mat-elevation-z8" *ngIf="etat === 'liste'">
+  <div class="example-header">
+    <mat-form-field floatPlaceholder="never">
+      <input matInput #filter placeholder="Filter users">
+    </mat-form-field>
+  </div>
+
+  <mat-table #table [dataSource]="dataSource">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="userId">
+      <mat-header-cell *matHeaderCellDef> Nom </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.nom}} </mat-cell>
+    </ng-container>
+
+    <!-- Progress Column -->
+    <ng-container matColumnDef="progress">
+      <mat-header-cell *matHeaderCellDef> Ville </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.ville}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="userName">
+      <mat-header-cell *matHeaderCellDef> Téléphone </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.tel}} </mat-cell>
+    </ng-container>
+
+    <!-- Color Column -->
+    <ng-container matColumnDef="color" >
+      <mat-header-cell *matHeaderCellDef > Courriel </mat-header-cell>
+      <mat-cell *matCellDef="let row" > <i class="material-icons" (click)="envoieCourrielClick(row.courriel)" style="color:grey">email</i> </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>
+
+
+
+
+<div class="example-container mat-elevation-z8" *ngIf="etat === 'admin'">
+  <div class="example-header">
+    <mat-form-field floatPlaceholder="never">
+      <input matInput #filter placeholder="Filter users">
+    </mat-form-field>
+  </div>
+
+  <mat-table #table [dataSource]="dataSource">
+
+    <!--&lt;!&ndash;- Note that these columns can be defined in any order.-->
+          <!--The actual rendered columns are set as a property on the row definition" &ndash;&gt;-->
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="userId">
+      <mat-header-cell *matHeaderCellDef> Nom </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.nom}} </mat-cell>
+    </ng-container>
+
+     Progress Column
+    <ng-container matColumnDef="progress">
+      <mat-header-cell *matHeaderCellDef> Ville </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.ville}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="userName">
+      <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+      <mat-cell *matCellDef="let row"></mat-cell>
+    </ng-container>
+
+    <!-- Color Column -->
+    <ng-container matColumnDef="color" >
+      <mat-header-cell *matHeaderCellDef > Action </mat-header-cell>
+
+      <mat-cell *matCellDef="let row" > <i class="material-icons iconList" (click)="editClick(row.courriel) "  style="color:grey">mode_edit</i><i  class="material-icons iconList" (click)="messageClick(row.courriel)" style="color:grey">assignment</i> <i class="material-icons iconList" (click)="roleClick(row.courriel)" style="color:grey">assignment_turned_in</i> </mat-cell>
+
+      <i class="material-icons">insert_comment</i>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

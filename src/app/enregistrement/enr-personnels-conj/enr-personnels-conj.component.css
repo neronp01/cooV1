@@ -1,0 +1,52 @@
+.md_card_login{
+  width: 500px;
+  height: auto;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 600px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.button-derection{
+  margin: 10px;
+}
+.content-info-perso{
+  margin-top: 100px;
+}
+.footer{
+  margin-top: 65px;
+}
+.champObli{
+  font-size: small ;
+  color: red;
+  position: relative;
+  bottom: 25px;
+  left: 20px;
+}
+.content-info-perso{
+  font-size: medium ;
+}
+.button_bottom{
+  margin: 5px;
+  margin-top:10px;
+  background-color: #83b748
+
+}
+.tile_button{
+  position:absolute;
+  top:20px
+}
+
+.backgound {
+  position: absolute;
+  top: 0px;
+  margin: 0px;
+  background-image: url("./../../../assets/backGround.jpg");
+  width: 100%;
+  height: 1000px;
+}

@@ -1,0 +1,178 @@
+<mat-toolbar style="height: 75px; background-color: #673AB7">
+
+  <span class="grandPic"><img class="google" style="transform: translate( -40px, 60px) scale(0.4)" src="./assets/grandPic.svg"/></span>
+  <span class="example-spacer"></span>
+  <h1 style="color: white">Bonjour {{nom}}</h1>
+  <button mat-button (click)="logout()">
+ <h1 style="color: #FFC107">déconnexion</h1>
+  </button>
+
+</mat-toolbar>
+
+<div class="infoPersoCard flex-container " *ngIf="etatAdmin === 'liste'" >
+                   <div class="barInf" (click)="toggleState()">
+                     <svg width="50px" height="100%">
+                       <svg class="icon" fill="#ffffff" height="48" viewBox="-6 -6 35 35" width="48" xmlns="http://www.w3.org/2000/svg">
+                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                         <path d="M0 0h24v24H0z" fill="none"/>
+                       </svg>
+                     </svg>
+                   </div>
+  <!--style="float: right; position: relative; top: 0px"-->
+  <div class="listeInfo"  [@infoState]="state" >
+    <mat-card style="margin: 40px">
+             <mat-list style="width: 500px ; margin: 0px" >
+               <mat-list-item>
+                 <mat-toolbar>
+                 <span>  <h3 align="left" >Inforations personnelles</h3></span>
+                 <span class="example-spacer"></span>
+                 <div class="example-tooltip-host" matTooltip="Rééditer vos information personnelles" [matTooltipPosition]="position">
+                   <button mat-fab color="primary" style="margin-left: 10px" [matMenuTriggerFor]="menu"  >
+                     <svg class="icon burger" fill="#ffffff" height="60" viewBox="0 0 35 35" width="60" xmlns="http://www.w3.org/2000/svg">
+                       <path d="M0 0h24v24H0z" fill="none"/>
+                       <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                     </svg>
+                   </button>
+                   <mat-menu #menu="matMenu" class="menuItem">
+                     <button mat-menu-item>
+                       <i class="material-icons menuItem position">email</i>
+                       <span class="menuItem">|&nbsp;&nbsp;&nbsp;&nbsp;Nous écrire</span>
+                     </button>
+                     <button mat-menu-item (click)="administrateurClick()">
+                       <i class="material-icons menuItem position">build</i>
+                       <span class="menuItem">|&nbsp;&nbsp;&nbsp;&nbsp;Administrateur</span>
+                     </button>
+                     <button mat-menu-item>
+                       <i class="material-icons menuItem position">monetization_on</i>
+                       <span class="menuItem">|&nbsp;&nbsp;&nbsp;&nbsp;Achat</span>
+                     </button>
+                     <button mat-menu-item  (click)="openDialog()">
+                       <i class="material-icons menuItem position">mode_edit</i>
+                       <span class="menuItem">|&nbsp;&nbsp;&nbsp;&nbsp;éditer</span>
+                     </button>
+                   </mat-menu>
+                 <!--<button mat-mini-fab color="primary" class="toolbar_menu_button" (click)="openDialog()"> <i class="material-icons">mode_edit</i></button>-->
+                 </div>
+                 </mat-toolbar>
+               </mat-list-item>
+<mat-list-item style="margin-top: 30px">
+             <p class="content-info-perso" style="margin-left: 20px">Nom: &nbsp; {{ nom }}</p>
+</mat-list-item>
+               <mat-list-item>
+             <p class="content-info-perso" style="margin-left: 20px">Adresse:  &nbsp; {{adresse}}</p>
+
+               </mat-list-item>
+               <mat-list-item>
+                 <p class="content-info-perso" style="margin-left: 20px">Ville:  &nbsp; {{ville}}</p>
+
+               </mat-list-item>
+               <mat-list-item>
+                 <p class="content-info-perso" style="margin-left: 20px">Code postal:  &nbsp; {{codePostal}}</p>
+
+               </mat-list-item>
+               <mat-list-item>
+             <p class="content-info-perso" style="margin-left: 20px">Téléphone:  &nbsp;{{telephone}}</p>
+               </mat-list-item>
+               <mat-list-item>
+             <p class="content-info-perso" *ngIf="profession!==null || profession!==''" style="margin-left: 20px">Profession:  &nbsp;{{profession}}</p>
+
+            </mat-list-item>
+               <mat-list-item>
+             <p class="content-info-perso"  *ngIf="dateNaissance!==null" style="margin-left: 20px">Date de naissance:  &nbsp;{{dateNaissance}}</p>
+               </mat-list-item>
+             </mat-list>
+    </mat-card>
+  </div>
+  <div class="barRole" >
+    <svg width="50px" height="100%" (click)="toggleRoleState()">
+      <svg class="icon" fill="#ffffff" height="48" viewBox="-6 -6 35 35" width="48" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h24v24H0zm10 5h4v2h-4zm0 0h4v2h-4z" fill="none"/>
+        <path d="M10 16v-1H3.01L3 19c0 1.11.89 2 2 2h14c1.11 0 2-.89 2-2v-4h-7v1h-4zm10-9h-4.01V5l-2-2h-4l-2 2v2H4c-1.1 0-2 .9-2 2v3c0 1.11.89 2 2 2h6v-2h4v2h6c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm-6 0h-4V5h4v2z"/>
+      </svg>
+    </svg>
+  </div>
+<div  [@roleState]="roleState" class="roleOrganisation">
+    <mat-card style="margin: 40px" class="role_card">
+      <mat-list>
+        <mat-list-item>
+          <h3 align="left">Participation</h3>
+        </mat-list-item>
+        <mat-card-content>
+          <mat-list-item *ngFor="let tab of tabRolePerso">
+            <ul>
+              <li class="content-info-perso">{{tab}}</li>
+            </ul>
+          </mat-list-item>
+        </mat-card-content>
+      </mat-list>
+    </mat-card>
+<mat-card style="margin: 40px">
+    <div *ngFor="let role of tabRole;  let i = index">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{role}}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+<ul *ngFor="let tab of tabRoleCOO[i]">
+  <li>{{tab}}</li>
+</ul>
+    </mat-expansion-panel>
+    </div>
+</mat-card>
+</div>
+
+  <div class="barlistMembre" (click)="togglelisteState()">
+    <svg width="50px" height="100%">
+      <svg class="icon" fill="#ffffff" height="48" viewBox="-6 -6 35 35" width="48" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+      </svg>
+    </svg>
+  </div>
+
+  <div [@listeState]="listeState" class="listMembre">
+    <app-email [courriel]="_envoieCourriel" *ngIf="etat=== 'courriel'" (envoie) = "envoie($event)"></app-email>
+    <mat-card style="margin: 40px">
+    <app-liste (envoieCourriel) = "envoieCourriel($event)" [etat]="etatAdmin"></app-liste>
+    </mat-card>
+  </div>
+
+  <div class="barCalendar" >
+    <svg width="50px" height="100%">
+      <svg class="icon" fill="#ffffff" height="48" viewBox="-6 -6 35 35" width="48" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+      </svg>
+    </svg>
+  </div>
+  <div class="calendar"  >
+    <mat-grid-list cols="1" rowHeight="800px" >
+      <mat-grid-tile colspan="1">
+        <app-edit-message (contenusMessage)="_contenusMessage($event)" [dateMessage]="editDate" *ngIf="calendar === 'edit'"></app-edit-message>
+        <yoshimi-calendar  (onSelectDate)="onSelectDate($event)" *ngIf="calendar === 'calendar'"></yoshimi-calendar>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+
+  </div>
+  </div>
+
+<div *ngIf="etatAdmin === 'admin'">
+  <app-administrateur (closeAdmin)="adminClose($event)" [etat]="etatAdmin"></app-administrateur>
+</div>
+
+<timer [parent]="parent" class="timer"></timer>
+
+
+
+
+           <!--<mat-grid-tile colspan="4" rowspan="1" *ngIf="dateNaissance!==null || dateNaissance!==''">-->
+             <!--<p>{{dateNaissance}}</p>-->
+           <!--</mat-grid-tile>-->
+
+
+
+
+
+

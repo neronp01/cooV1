@@ -1,0 +1,50 @@
+.md_card_login{
+  width: 500px;
+  height: 800px;
+}
+.md_card_login2{
+  width: 450px;
+  height: auto;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+.informationSaisies{
+  margin-top: 20px;
+}
+.footer{
+  margin-top: 60px;
+}
+.champObli{
+  font-size: small ;
+  color: red;
+  position: relative;
+  bottom: 25px;
+  left: 20px;
+}
+
+.content-info-perso{
+  font-size: medium ;
+}
+.card_titre{
+  position:relative;
+  top:30px;
+}
+
+.ajoutMembre {
+  height: 800px;
+}
+.backgound {
+  position: absolute;
+  top: 0px;
+  margin: 0px;
+  background-image: url("./../../../assets/backGround.jpg");
+  width: 100%;
+  height: 1000px;
+}

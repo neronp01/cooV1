@@ -1,0 +1,7 @@
+
+<app-enr-personnels  (membreX)="_membreX($event)"   (infoMembre)="_infoMembre($event)" (infoMembreConjoint)="_infoMembreConjoint($event)" (fuillet)="newFuillet($event)"  *ngIf="fuillet==='enr-personnels'"></app-enr-personnels>
+<app-enr-personnels-conj [membreX]="membreX"   [infoMembre]="infoMembre" [infoMembreConjoint]="infoMembreConjoint"  (fuillet)="newFuillet($event)" *ngIf="fuillet==='enr-personnels-conj'"></app-enr-personnels-conj>
+<app-enr-permissions  (fuillet)="newFuillet($event)" *ngIf="fuillet==='enr-permissions'"></app-enr-permissions>
+<app-facture (fuillet)="newFuillet($event)" *ngIf="fuillet==='facture'"></app-facture>
+
+<timer [parent]="parent" class="timer"></timer>

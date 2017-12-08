@@ -21,7 +21,7 @@ sousMessage = '';
   hoursDisplay: number = 0;
   secondsDisplay: number = 0;
   timerSeconde = 60;
-  COOInfo = ['Le plus vieux club du Québec', 'Protection des oiseaux et de leurs habitats' , 'Plus de 300 membres', 'Des amoureux des oiseaux',
+  COOInfo = ['Le plus vieux club de l\'Outaouais', 'Protection des oiseaux et de leurs habitats' , 'Plus de 300 membres', 'Des amoureux des oiseaux',
     'Moyenne d’âge plus élevé' , 'Écologistes', 'Réseau social'];
   COOINFBOOL = false;
   objectifInfo = ['Objectifs', 'Automatisation des tâches' , 'Développer un système modulaire '];
@@ -89,7 +89,7 @@ sousMessage = '';
       if (this.message === 'Introduction') {
         if (test < 240) {
           if (test > 120) {
-            this.sousMessage = 'Qu\'est-ce que le COO';
+            this.sousMessage = 'Qu\'est-ce que le COO?';
             this.COOINFBOOL = true;
           } else if (test > 60) {
             this.sousMessage = 'La genêse du projet';
@@ -104,7 +104,7 @@ sousMessage = '';
       if (this.message === 'Technologie') {
         if (test > 120) {
           this.techno = true;
-          this.sousMessage = 'Les platformes';
+          this.sousMessage = 'Les plateformes';
         } else {
           this.techno = false;
           this.sousMessage = 'Le système d\'authentification';

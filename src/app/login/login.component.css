@@ -45,6 +45,7 @@
 }
 
 .timer {
+  transform: scale(.6);
   position: fixed;
   right: 0px;
   bottom: 0px;

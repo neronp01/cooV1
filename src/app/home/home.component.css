@@ -131,6 +131,7 @@ order:4;
   color: #512DA8;
 }
 .timer {
+  transform: scale(.8);
   position: fixed;
   right: 0px;
   bottom: 0px;

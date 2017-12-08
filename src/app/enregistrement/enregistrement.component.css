@@ -7,6 +7,7 @@ position: relative;
 
 }
 .timer {
+  transform: scale(.8);
   position: fixed;
   right: 50px;
   bottom: 50px;

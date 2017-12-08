@@ -8,7 +8,7 @@
         <mat-menu #menu="matMenu">
           <button mat-menu-item (click)="retourHomeClick()">
             <i class="material-icons position color">home</i>
-            <span class="menuItem color">|&nbsp;&nbsp;&nbsp;&nbsp;Home</span>
+            <span class="menuItem color">|&nbsp;&nbsp;&nbsp;&nbsp;Accueil</span>
           </button>
           <button mat-menu-item (click)="ajouterMembreClick()">
             <i class="material-icons position color">person_add</i>
@@ -29,7 +29,8 @@
   <mat-grid-tile colspan="1" >
     <mat-card class="card_message" *ngIf="etatEdit === 'overviewEdit'">
       <mat-card-header>
-        <h2>Edition</h2>
+        <h2>Modification</h2>
+
         <span class="example-spacer"></span>
         <button mat-mini-fab color=null (click)="closeClick()" style="float: right; z-index: 1;"><i style="color: #673AB7" class="material-icons">clear</i></button>
       </mat-card-header>
@@ -40,7 +41,7 @@
     </mat-card>
     <mat-card class="card_ajoutMembre" *ngIf="etatEdit === 'ajouterMembre'">
       <mat-card-header>
-        <h2>Edition</h2>
+        <h2>Modification</h2>
         <span class="example-spacer"></span>
         <button mat-mini-fab color=null (click)="closeClick()" style="float: right; z-index: 1;"><i style="color: #673AB7" class="material-icons">clear</i></button>
       </mat-card-header>
@@ -50,7 +51,7 @@
     </mat-card>
     <mat-card class="card_ajoutMembre" *ngIf="etatEdit === 'role'">
       <mat-card-header>
-        <h2>Rôle</h2>
+        <h2>Rôles et responsabilités</h2>
         <span class="example-spacer"></span>
         <button mat-mini-fab color=null (click)="closeClick()" style="float: right; z-index: 1;"><i style="color: #673AB7" class="material-icons">clear</i></button>
       </mat-card-header>
@@ -78,12 +79,12 @@
                 style="margin-left: 43%; margin-bottom: 20px"
                 color="primary"
                 type="submit"
-                class="btn-success" (click)="saveRoleClick()" >Sauver</button>
+                class="btn-success" (click)="saveRoleClick()" >Enregistrer</button>
       </mat-card-footer>
     </mat-card>
     <mat-card class="card_ajoutMembre" *ngIf="etatEdit === 'gestionRole'">
       <mat-card-header>
-        <h2>Gestion des Rôles</h2>
+        <h2>Gestion des rôles</h2>
         <span class="example-spacer"></span>
         <button mat-mini-fab color=null (click)="closeClick()" style="float: right; z-index: 1;"><i style="color: #673AB7" class="material-icons">clear</i></button>
       </mat-card-header>
@@ -99,7 +100,7 @@
           </mat-selection-list>
         </mat-list>
         <mat-form-field style="width: 92%; margin-left: 30px ">
-          <input matInput placeholder="Inscriver un nouveau rôle" #role value="">
+          <input matInput placeholder="Ajouter un rôle" #role value="">
         </mat-form-field>
       </mat-card-content>
       <mat-card-footer>
@@ -107,12 +108,12 @@
                 style="margin-left: 43%; margin-bottom: 20px"
                 color="primary"
                 type="submit"
-                class="btn-success" (click)=" saveRoleOrgClick(role.value)" >Sauver</button>
+                class="btn-success" (click)=" saveRoleOrgClick(role.value)" >Enregistrer</button>
       </mat-card-footer>
     </mat-card>
     <mat-card class="card_ajoutMembre" *ngIf="etatEdit === 'message'">
       <mat-card-header>
-        <h2>Message</h2>
+        <h2>Notes</h2>
         <span class="example-spacer"></span>
         <button mat-mini-fab color=null (click)="closeClick()" style="float: right; z-index: 1;"><i style="color: #673AB7" class="material-icons">clear</i></button>
       </mat-card-header>
@@ -128,7 +129,7 @@
 
         </mat-list>
         <mat-form-field style="width: 100%">
-          <input matInput placeholder="Inscriver une nouvelle note" #note [value]="inputValue">
+          <input matInput placeholder="Ajouter une note" #note [value]="inputValue">
         </mat-form-field>
       </mat-card-content>
       <mat-card-footer>
@@ -136,7 +137,7 @@
                 style="margin-left: 43%; margin-bottom: 20px"
                 color="primary"
                 type="submit"
-                class="btn-success" (click)=" addNoteClick(note.value); note.value=''" >Sauver</button>
+                class="btn-success" (click)=" addNoteClick(note.value); note.value=''" >Enregistrer</button>
       </mat-card-footer>
     </mat-card>
   </mat-grid-tile>

@@ -21,8 +21,8 @@ sousMessage = '';
   hoursDisplay: number = 0;
   secondsDisplay: number = 0;
   timerSeconde = 60;
-  COOInfo = ['Le plus vieux club du Québec', 'Protection des oiseaux et de leurs habitats' , 'Plus de 300 membres', 'Des amoureux des Oiseaux',
-    'Moyenne d’age plus élevé que la population' , 'Activistes écologistes', 'Activistes écologistes'];
+  COOInfo = ['Le plus vieux club du Québec', 'Protection des oiseaux et de leurs habitats' , 'Plus de 300 membres', 'Des amoureux des oiseaux',
+    'Moyenne d’âge plus élevé' , 'Écologistes', 'Réseau social'];
   COOINFBOOL = false;
   objectifInfo = ['Objectifs', 'Automatisation des tâches' , 'Développer un système modulaire '];
   objectBool = false;
